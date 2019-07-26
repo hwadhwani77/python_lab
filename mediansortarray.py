@@ -62,8 +62,10 @@ def findMedianHW(a1, a2):
 x = [1,3,8,9,15]
 y = [7,11,19,21,23,25]
 print(findMedian(x,y))
+print()
 l = [1,3,7,8,9,11,15,18,21,25]
 if(len(l) %2 == 0):
     print(l[int(len(l)/2)])
-
+print()
 print(findMedianHW(x,y))
+
