@@ -57,16 +57,33 @@ def height(node:Node):
         else:
             return rheight + 1
 
+def isValidBST(root: Node):
+    def helperNode(node: Node, lower=float('-inf'), upper=float('inf')):
+        if not node:
+            return True
+        val = node.val
+        if val <= lower or val >= upper:
+            return False
+        if not helperNode(node.left, lower, val):
+            return False
+        if not helperNode(node.right, val, upper):
+            return False
+        return True
+    return helperNode(root)
+
 root = Node(10)  
-root.left = Node(11)  
-root.left.left = Node(7)  
-root.right = Node(9)  
-root.right.left = Node(15)  
-root.right.right = Node(8)
+root.left = Node(8)  
+root.left.left = Node(4)
+root.left.right = Node(9)  
+root.right = Node(13)  
+root.right.left = Node(11)  
+root.right.right = Node(14)
 
 inorder(root)
-insert(root, 12)  
+#insert(root, 12)  
 print()
 inorder(root)
 print()
 printLevelOrder(root)
+print()
+print(isValidBST(root))

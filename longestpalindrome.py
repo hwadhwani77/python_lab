@@ -6,9 +6,11 @@ def longestPalindrome(s):
         len1 = expandCenter(s, i, i)
         len2 = expandCenter(s, i, i+1)
         m_len = max(len1, len2)
+        print("MaxLen: %d" %(m_len))
         if(m_len > end - start):
-            start = int(i - (m_len  - 1)/2)
+            start = int(i - int((m_len  - 1)/2))
             end = int(i + m_len/2)
+            print("Start: %d, End: %d" %(start, end))
     return s[start:end+1]
 
 def expandCenter(s, l, r):
@@ -21,4 +23,4 @@ def expandCenter(s, l, r):
     return R - L -1
 
 
-print(longestPalindrome("babad"))
+print(longestPalindrome("cbbd"))
